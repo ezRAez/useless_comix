@@ -5,7 +5,7 @@ class FavoriteComicsController < ApplicationController
     if Favorite.create(favorited: @comic, user: current_user)
       redirect_to @comic, notice: 'Comic has been favorited'
     else
-      redirect_to @comic, alert: 'Something went wrong...*sad panda*'
+      redirect_to @comic, alert: 'Something went wrong!'
     end
   end
 

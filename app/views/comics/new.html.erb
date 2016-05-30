@@ -1,1 +1,33 @@
-<h1>Add Comic</h1>
+<div class="container">
+<%= form_for(@comic) do |f| %>
+  <% if @comic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comic.errors.count, "error") %> prohibited this comic from being saved:</h2>
+
+      <ul>
+      <% @comic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+      <div>
+        <div>
+          <%= f.label "name: " %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div>
+          <%= f.label "uri: " %><br>
+          <%= f.text_field :uri %>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions btn">
+      <%= f.submit %>
+    </div>
+    <%= link_to 'Back', "/users/#{ current_user.id }"%>
+  </div>
+<% end %>
+</div>
