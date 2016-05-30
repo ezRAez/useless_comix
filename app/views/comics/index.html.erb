@@ -1,0 +1,12 @@
+<h1>Useless Comix</h1>
+<p>Archive</p>
+
+<ul>
+  <% @comics.each do |comic| %>
+    <li>
+      <%= image_tag(comic.uri, height: '32', width: '32') %>
+      <strong><%= comic.name %></strong> - <%= comic.created_at %>
+    </li>
+
+  <% end %>
+</ul>
