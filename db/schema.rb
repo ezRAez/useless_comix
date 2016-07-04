@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528040723) do
+ActiveRecord::Schema.define(version: 20160704004255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20160528040723) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "uri"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "sketch",     default: true
   end
 
   add_index "comics", ["user_id"], name: "index_comics_on_user_id", using: :btree
@@ -40,10 +41,10 @@ ActiveRecord::Schema.define(version: 20160528040723) do
   create_table "users", force: :cascade do |t|
     t.string   "password_digest"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "name"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
   end
 
   add_foreign_key "favorites", "users"

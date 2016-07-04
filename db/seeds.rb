@@ -24,8 +24,31 @@ users = User.create([
 ])
 
 admin.comics.create([
-  { name: "Heated", uri: "http://www.uselesscomix.com/wp-content/uploads/2013/05/2013-05-24-Heated.png" },
-  { name: "He's Software", uri: "http://www.uselesscomix.com/wp-content/uploads/2013/04/2013-04-29-Hes-Software.png" }
+  {
+    name: "Heated",
+    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/05/2013-05-24-Heated.png",
+    sketch: true
+  },
+  {
+    name: "He's Software",
+    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/04/2013-04-29-Hes-Software.png",
+    sketch: true
+  },
+  {
+    name: "Not a Nobody",
+    uri: "http://i.imgur.com/UWrdWlW.jpg",
+    sketch: false
+  },
+  {
+    name: "Cogito Ergo Sum…",
+    uri: "http://i.imgur.com/w05WbcJ.jpg",
+    sketch: false
+  },
+  {
+    name: "Dental Love",
+    uri: "http://i.imgur.com/qAvjkFx.jpg",
+    sketch: false
+  }
 ])
 
 Favorite.create([
