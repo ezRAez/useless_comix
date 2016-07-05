@@ -1,4 +1,5 @@
 User.destroy_all
+Comic.destroy_all
 
 admin = User.create({
   name: "ezRAez",

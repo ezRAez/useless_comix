@@ -5,10 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(self.user_params)
+    @user = User.new(user_params)
     if @user.save
-      flash[:message] = "Welcome '#{@user.handle}'!"
-      redirect_to root_path
+      redirect_to root_path, notice: "Welcome #{@user.name}!"
     else
       render :new
     end
@@ -25,6 +24,7 @@ class UsersController < ApplicationController
       redirect_to root_path, alert: "Account deleted."
     else
       redirect_to root_path, alert: "Cannot delete accounts of other users."
+    end
   end
 
   private

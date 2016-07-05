@@ -9,11 +9,9 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-
-      flash[:message] = "Welcome '#{user.handle}'!"
-      redirect_to root_path
+      redirect_to root_path, notice: "Welcome #{user.name}!"
     else
-      flash[:message] = "Invalid login credentials."
+      flash[:alert] = "Invalid login credentials."
       render :new
     end
   end
@@ -21,8 +19,6 @@ class SessionsController < ApplicationController
   def destroy
     # clear data from the session!
     session[:user_id] = nil
-
-    flash[:message] = "Logged out!"
-    redirect_to root_path
+    redirect_to root_path, notice: "Logged out!"
   end
 end
