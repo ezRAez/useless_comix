@@ -27,3 +27,17 @@ h1 {
   font-size: 7rem;
   letter-spacing: .24rem;
 }
+
+.flash {
+  border: 1px solid black;
+  padding: 1em;
+  background: #eee;
+}
+
+.alert  { color: red;  }
+
+.notice { color: blue; }
+
+.size-helper {
+  height: 300px;
+}

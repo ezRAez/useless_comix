@@ -1,5 +1,14 @@
 <h1>Useless Comix</h1>
 
+<% if !current_user %>
+  <%= link_to 'Login', login_path %> or
+  <%= link_to 'Signup', new_user_path  %>
+<% else %>
+  <%= link_to 'Logout', logout_path, method: :delete %>
+<% end %>
+<br>
+<%= render 'errors' %>
+
 <%= @comic.name %>
 
-<%= image_tag(@comic.uri) %>
+<%= image_tag(@comic.uri, class: "size-helper") %>

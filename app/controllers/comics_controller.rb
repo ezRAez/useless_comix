@@ -6,8 +6,8 @@ class ComicsController < ApplicationController
   end
 
   def show
-    last_id = params[:id] || Comic.last.id
-    @comic = Comic.find(last_id)
+    id = params[:id] || Comic.last.id
+    @comic = Comic.find(id)
   end
 
   def new
@@ -33,6 +33,7 @@ class ComicsController < ApplicationController
       redirect_to comic_path, notice: 'Comic updated!'
     else
       render 'edit', alert: "Could not update comic."
+    end
   end
 
   def delete

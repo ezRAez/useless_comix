@@ -17,19 +17,15 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless logged_in?
-      flash[:error] = "You must be logged in to access this section of the site"
+      flash[:alert] = "You must be logged in to access this section of the site"
       redirect_to login_url
     end
   end
 
   protected
     def admit_admin!
-      if current_user.admin?
-        super
-      else
-        redirect_to root_path, alert: "That page does not exist…"
+        redirect_to root_path, alert: "That page does not exist…" unless current_user.admin?
         ## if you want render 404 page
         ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
-      end
     end
 end
