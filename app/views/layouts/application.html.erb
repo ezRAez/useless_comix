@@ -16,7 +16,7 @@
       <li class="nav-cell">Welcome <%= current_user.name %></li>
       <% end %>
       <li class="nav-cell" class="empty-cell"></li>
-      <li class="nav-cell">About</li>
+      <li class="nav-cell"><%= link_to 'About', about_path %></li>
       <li class="nav-cell"><%= link_to 'Archives', comics_path %></li>
       <% if !current_user %>
         <li class="nav-cell"><%= link_to 'Login', login_path %></li>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'about', to: 'static_pages#about'
+
   root "comics#show"
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
