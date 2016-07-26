@@ -23,6 +23,10 @@
   src: font-url('bad-mofo.ttf') format('truetype');
 }
 
+li {
+  list-style-type: none;
+}
+
 h1 {
   font-family: 'bad-mofo', Fallback, sans-serif;
   font-size: 7rem;
@@ -41,4 +45,22 @@ h1 {
 
 .size-helper {
   height: 300px;
+}
+
+// Nav Bar
+
+.nav-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.empty-cell {
+  flex-grow: 1;
+}
+
+.nav-cell {
+  min-width: 5%;
+
 }

@@ -8,13 +8,34 @@
 </head>
 <body>
 
-<div class="container">
-  <% flash.each do |type, message| %>
-    <p class="flash <%= type.to_s %>"><%= message %></p>
-  <% end %>
-</div>
+  <div class="container">
+    <h1>Useless Comix</h1>
+    <ul class="nav-flex">
+      <li class="nav-cell"><%= link_to 'Home', root_path %></li>
+      <% if current_user %>
+      <li class="nav-cell">Welcome <%= current_user.name %></li>
+      <% end %>
+      <li class="nav-cell" class="empty-cell"></li>
+      <li class="nav-cell">About</li>
+      <li class="nav-cell"><%= link_to 'Archives', comics_path %></li>
+      <% if !current_user %>
+        <li class="nav-cell"><%= link_to 'Login', login_path %></li>
+        <li class="nav-cell"><%= link_to 'Signup', new_user_path  %></li>
+      <% else %>
+        <li class="nav-cell"><%= link_to 'My Profile', user_path(current_user)  %></li>
+        <li class="nav-cell"><%= link_to 'Logout', logout_path, method: :delete %></li>
+      <% end %>
+    </ul>
+  </div>
 
-<%= yield %>
+  <div class="container">
+    <% flash.each do |type, message| %>
+      <p class="flash <%= type.to_s %>"><%= message %></p>
+    <% end %>
+  </div>
 
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
