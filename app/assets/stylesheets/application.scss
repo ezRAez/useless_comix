@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require normalize-rails
+ *= require skeleton
  */
 
-@import "semantic-ui";
 
 @font-face {
   font-family: 'bad-mofo';
