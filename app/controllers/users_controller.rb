@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:id] != current_user.id && !current_user.admin?
+    if params[:id].to_i != current_user.id && !current_user.admin?
       redirect_to root_path, alert: 'Cannot update other users.'
     elsif @user.update_attributes(user_params)
       redirect_to user_path, notice: 'User updated!'
@@ -35,10 +35,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user == current_user || current_user.admin
-      @user.destroy
-      redirect_to root_path, alert: "Account deleted."
+    user = User.find(params[:id])
+    if user == current_user || current_user.admin?
+      if user.destroy
+        session[:user_id] = nil
+        redirect_to root_path, alert: "Account deleted."
+      else
+        redirect_to root_path, alert: "There was a problem!"
+      end
     else
       redirect_to root_path, alert: "Cannot delete accounts of other users."
     end

@@ -17,7 +17,7 @@ users = User.create([
     password_confirmation: "abc123"
   },
   {
-    name: "Porp Donald Porp",
+    name: "Donald Porp",
     email: "porp@email.com",
     password: "abc123",
     password_confirmation: "abc123"
