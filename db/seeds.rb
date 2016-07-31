@@ -31,8 +31,28 @@ admin.comics.create([
     sketch: true
   },
   {
+    name: "This is Awful",
+    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/03/2013-03-14-This-is-Awful.png",
+    sketch: true
+  },
+  {
+    name: "Party Button",
+    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/02/2013-02-22-Party-Button.png",
+    sketch: true
+  },
+  {
     name: "He's Software",
     uri: "http://www.uselesscomix.com/wp-content/uploads/2013/04/2013-04-29-Hes-Software.png",
+    sketch: true
+  },
+  {
+    name: "Milk's Most Courageous Cookie",
+    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/06/2013-06-14-Milks-Least-Favorite-Cookie.png",
+    sketch: true
+  },
+  {
+    name: "Save Yourself Son!",
+    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/04/2013-04-07-Save-Yourself-Son.png",
     sketch: true
   },
   {

@@ -1,3 +1,22 @@
 // Place all the styles related to the Comics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-container {
+  width: 100%;
+}
+
+.cen-jus {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comic-nav-flex {
+  margin: 0 auto;
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  align-items: baseline;
+}

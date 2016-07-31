@@ -17,6 +17,6 @@ class FavoriteComicsController < ApplicationController
   private
 
   def set_comic
-    @comic = Comic.find(params[:comic_id] || params[:id])
+    @comic   = Comic.find(params[:comic_id] || params[:id] || params[:format])
   end
 end

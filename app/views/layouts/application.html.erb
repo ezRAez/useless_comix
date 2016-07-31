@@ -8,10 +8,9 @@
 </head>
 <body>
 
-  <div class="container">
-    <h1>Useless Comix</h1>
+  <div class="nav-top-container">
     <ul class="nav-flex">
-      <li class="nav-cell"><%= link_to 'Home', root_path %></li>
+      <li class="nav-cell"><h1><%= link_to 'Useless Comix', root_path %></h1></li>
       <% if current_user %>
       <li class="nav-cell">Welcome <%= current_user.name %></li>
       <% end %>

@@ -1,6 +1,55 @@
 
 <%= render 'errors' %>
 
-<%= @comic.name %>
+<div class="main-container">
+  <div class="row">
+    <div class="two columns">
+      <%= image_tag(@comics[0].uri, class:"thumb-help") %>
+      <%= image_tag(@comics[1].uri, class:"thumb-help") %>
+      <%= image_tag(@comics[2].uri, class:"thumb-help") %>
+    </div>
+    <div class="eight columns cen-jus">
+      <ul class="comic-nav-flex">
+        <li class="comic-nav-cell"><%= link_to "First", comic_path(1)%></li>
+        <li class="comic-nav-cell">Before</li>
+        <li class="comic-nav-cell">Random</li>
+        <li class="comic-nav-cell">Next</li>
+        <li class="comic-nav-cell">Last</li>
+      </ul>
+      <br>
+      <%= image_tag(@comic.uri, class: "size-helper") %>
+    </div>
+    <div class="two columns">
+      <%= image_tag(@comics[3].uri, class:"thumb-help") %>
+      <%= image_tag(@comics[4].uri, class:"thumb-help") %>
+      <%= image_tag(@comics[5].uri, class:"thumb-help") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns cen-jus">
+      <%= @comic.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns cen-jus">
+      <%= @comic.created_at %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns cen-jus">
+      <% if current_user %>
+        <% if current_user.favorite_comics.include?(@comic) %>
+          <%= link_to "Unfavorite", favorite_comic_path(@comic.id), method: :delete %>
+        <% else %>
+          <%= link_to "Favorite", favorite_comics_path(@comic.id), method: :post %>
+        <% end %>
+        <% if current_user.admin? %>
+          - <%= link_to "Edit", edit_user_comic_path(current_user, @comic) %>
+          <%= link_to "Delete", user_comic_path(current_user, @comic), method: :delete, data: { confirm: "Are you sure you want to delete #{@comic.name}?"} %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= image_tag(@comic.uri, class: "size-helper") %>
+

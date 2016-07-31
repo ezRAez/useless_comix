@@ -1,6 +1,12 @@
-<h1>Hello, <%= @user.name %></h1>
+<h1><%= @user.name %></h1>
 
-<button><%= link_to "Edit Profile", edit_user_path(@user) %></button>
+<%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
+
+<% if current_user %>
+  <% if current_user.admin? %>
+    <%= button_to "Add Comic", new_user_comic_path(@user), method: :get %>
+  <% end %>
+<% end %>
 
 <h3>Favorite Comics</h3>
 <ul>

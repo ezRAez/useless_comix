@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
 
   resources :users do
-    resources :comics, only: [:create, :edit, :new, :delete, :update ]
+    resources :comics, except: [:index, :show]
   end
   resources :comics, only: [:index, :show]
   resources :favorite_comics, only: [:create, :destroy]

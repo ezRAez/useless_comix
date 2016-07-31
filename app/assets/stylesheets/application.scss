@@ -47,6 +47,11 @@ h1 {
   height: 300px;
 }
 
+.thumb-help {
+  height: 100%;
+  width: 100%;
+}
+
 // Nav Bar
 
 .nav-flex {
@@ -54,6 +59,7 @@ h1 {
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
+  align-items: baseline;
 }
 
 .empty-cell {
@@ -61,6 +67,10 @@ h1 {
 }
 
 .nav-cell {
-  min-width: 5%;
+  max-width: 30%;
+}
 
+.nav-top-container {
+  width: 90vw;
+  margin: 15px auto;
 }

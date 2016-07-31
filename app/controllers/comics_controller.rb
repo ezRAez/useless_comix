@@ -6,8 +6,8 @@ class ComicsController < ApplicationController
   end
 
   def show
-    id = params[:id] || Comic.last.id
-    @comic = Comic.find(id)
+    @comic  = Comic.find(params[:id] || Comic.last.id)
+    @comics = Comic.limit(6).order("RANDOM()")
   end
 
   def new
@@ -36,7 +36,7 @@ class ComicsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @comic = Comic.find(params[:id])
     @comic.destroy
     redirect_to comics_path, notice: "Comic deleted."
