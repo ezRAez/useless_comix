@@ -3,12 +3,12 @@
 
 <div class="main-container">
   <div class="row">
-    <div class="two columns">
+    <div class="three columns">
       <%= image_tag(@comics[0].uri, class:"thumb-help") %>
       <%= image_tag(@comics[1].uri, class:"thumb-help") %>
       <%= image_tag(@comics[2].uri, class:"thumb-help") %>
     </div>
-    <div class="eight columns cen-jus">
+    <div class="six columns cen-jus">
       <ul class="comic-nav-flex">
         <li class="comic-nav-cell"><%= link_to "First", comic_path(1)%></li>
         <li class="comic-nav-cell">Before</li>
@@ -17,9 +17,9 @@
         <li class="comic-nav-cell">Last</li>
       </ul>
       <br>
-      <%= image_tag(@comic.uri, class: "size-helper") %>
+      <%= image_tag(@comic.uri, class: "thumb-help") %>
     </div>
-    <div class="two columns">
+    <div class="three columns">
       <%= image_tag(@comics[3].uri, class:"thumb-help") %>
       <%= image_tag(@comics[4].uri, class:"thumb-help") %>
       <%= image_tag(@comics[5].uri, class:"thumb-help") %>
