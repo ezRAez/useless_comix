@@ -7,7 +7,23 @@ class ComicsController < ApplicationController
 
   def show
     @comic  = Comic.find(params[:id] || Comic.last.id)
-    @comics = Comic.limit(6).order("RANDOM()")
+    @comics = Comic.limit(7).order("RANDOM()")
+    @first_comic = Comic.first
+    @last_comic = Comic.last
+    @next_comic = nil
+    @prev_comic = nil
+
+    if @comic != @last_comic
+      @next_comic = Comic.where( "created_at > ?", @comic.created_at )
+                         .order( "created_at" )
+                         .first
+    end
+
+    if @comic != @first_comic
+      @prev_comic = Comic.where( "created_at < ?", @comic.created_at )
+                         .order( "created_at DESC" )
+                         .first
+    end
   end
 
   def new

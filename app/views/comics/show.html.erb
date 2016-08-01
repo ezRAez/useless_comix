@@ -10,11 +10,19 @@
     </div>
     <div class="six columns cen-jus">
       <ul class="comic-nav-flex">
-        <li class="comic-nav-cell"><%= link_to "First", comic_path(1)%></li>
-        <li class="comic-nav-cell">Before</li>
-        <li class="comic-nav-cell">Random</li>
-        <li class="comic-nav-cell">Next</li>
-        <li class="comic-nav-cell">Last</li>
+        <li class="comic-nav-cell"><%= link_to "First", comic_path(@first_comic.id)%></li>
+        <% if @prev_comic == nil %>
+          <li class="comic-nav-cell">Before</li>
+        <% else %>
+          <li class="comic-nav-cell"><%= link_to "Before", comic_path(@prev_comic.id)%></li>
+        <% end %>
+        <li class="comic-nav-cell"><%= link_to "Random", comic_path(@comics[6])%></li>
+        <% if @next_comic == nil %>
+          <li class="comic-nav-cell">Next</li>
+        <% else %>
+          <li class="comic-nav-cell"><%= link_to "Next", comic_path(@next_comic.id)%></li>
+        <% end %>
+        <li class="comic-nav-cell"><%= link_to "Last", comic_path(@last_comic.id)%></li>
       </ul>
       <br>
       <%= image_tag(@comic.uri, class: "thumb-help") %>
