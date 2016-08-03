@@ -5,8 +5,8 @@
   <div class="row">
     <div class="three columns cen-jus">
       <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
-      <%= link_to image_tag(@comics[1].uri, class:"thumb-help"), comic_path(@comics[1].id) %>
-      <%= link_to image_tag(@comics[2].uri, class:"thumb-help"), comic_path(@comics[2].id) %>
+      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
+      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
     </div>
     <div class="six columns cen-jus">
       <ul class="comic-nav-flex">
@@ -16,7 +16,7 @@
         <% else %>
           <li class="comic-nav-cell"><%= link_to "Before", comic_path(@prev_comic.id)%></li>
         <% end %>
-        <li class="comic-nav-cell"><%= link_to "Random", comic_path(@comics[6])%></li>
+        <li class="comic-nav-cell"><%= link_to "Random", comic_path(@comics[0])%></li>
         <% if @next_comic == nil %>
           <li class="comic-nav-cell">Next</li>
         <% else %>
@@ -28,9 +28,9 @@
       <%= image_tag(@comic.uri, class: "main-comic") %>
     </div>
     <div class="three columns cen-jus">
-      <%= link_to image_tag(@comics[3].uri, class:"thumb-help"), comic_path(@comics[3].id) %>
-      <%= link_to image_tag(@comics[4].uri, class:"thumb-help"), comic_path(@comics[4].id) %>
-      <%= link_to image_tag(@comics[5].uri, class:"thumb-help"), comic_path(@comics[5].id) %>
+      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
+      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
+      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
     </div>
   </div>
   <div class="row">
