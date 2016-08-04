@@ -25,7 +25,7 @@
         <li class="comic-nav-cell"><%= link_to "Last", comic_path(@last_comic.id)%></li>
       </ul>
       <br>
-      <%= image_tag(@comic.uri, class: "main-comic") %>
+      <%= image_tag(@comic.image.url(:thumb), class: "main-comic") %>
     </div>
     <div class="three columns cen-jus">
       <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>

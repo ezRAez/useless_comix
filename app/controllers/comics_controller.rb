@@ -61,6 +61,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comics).permit(:name, :uri)
+    params.require(:comic).permit(:name, :uri, :image)
   end
 end

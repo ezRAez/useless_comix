@@ -1,6 +1,6 @@
 <div class="container">
 <h1>New Comic</h1>
-<%= form_for @comic, html: { multipart: true } do |f| %>
+<%= form_for @comic, html: { multipart: true }, url: user_comics_path(current_user) do |f| %>
   <% if @comic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comic.errors.count, "error") %> prohibited this comic from being saved:</h2>
