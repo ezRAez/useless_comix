@@ -27,47 +27,47 @@ users = User.create([
 admin.comics.create([
   {
     name: "Heated",
-    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/05/2013-05-24-Heated.png",
+    image: File.open(File.join(Rails.root, '/app/assets/images/heated.png')),
     sketch: true
   },
   {
     name: "This is Awful",
-    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/03/2013-03-14-This-is-Awful.png",
+    image: File.open(File.join(Rails.root, '/app/assets/images/this_is_awful.png')),
     sketch: true
   },
   {
     name: "Party Button",
-    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/02/2013-02-22-Party-Button.png",
+    image: File.open(File.join(Rails.root, '/app/assets/images/party_button.png')),
     sketch: true
   },
   {
     name: "He's Software",
-    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/04/2013-04-29-Hes-Software.png",
+    image: File.open(File.join(Rails.root, '/app/assets/images/hes_software.png')),
     sketch: true
   },
   {
     name: "Milk's Most Courageous Cookie",
-    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/06/2013-06-14-Milks-Least-Favorite-Cookie.png",
+    image: File.open(File.join(Rails.root, '/app/assets/images/milks_most_courageous_cookie.png')),
     sketch: true
   },
   {
     name: "Save Yourself Son!",
-    uri: "http://www.uselesscomix.com/wp-content/uploads/2013/04/2013-04-07-Save-Yourself-Son.png",
+    image: File.open(File.join(Rails.root, '/app/assets/images/save_yourself_son.png')),
     sketch: true
   },
   {
     name: "Not a Nobody",
-    uri: "http://i.imgur.com/UWrdWlW.jpg",
+    image: File.open(File.join(Rails.root, '/app/assets/images/not_a_nobody.jpg')),
     sketch: false
   },
   {
     name: "Cogito Ergo Sum…",
-    uri: "http://i.imgur.com/w05WbcJ.jpg",
+    image: File.open(File.join(Rails.root, '/app/assets/images/cogito_ergo_sum.jpg')),
     sketch: false
   },
   {
     name: "Dental Love",
-    uri: "http://i.imgur.com/qAvjkFx.jpg",
+    image: File.open(File.join(Rails.root, '/app/assets/images/dental_love.jpg')),
     sketch: false
   }
 ])

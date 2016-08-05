@@ -12,7 +12,7 @@
 <ul>
   <% @user.favorite_comics.each do |comic| %>
     <li>
-      <%= image_tag(comic.uri, height: '32', width: '32') %>
+      <%= image_tag(comic.image.url(:thumb)) %>
       <strong>
         <%= link_to "#{comic.name}", comic_path(comic) %>
       </strong> - <%= comic.created_at %>

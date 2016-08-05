@@ -4,9 +4,9 @@
 <div class="main-container">
   <div class="row">
     <div class="three columns cen-jus">
-      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
-      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
-      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
+      <%= link_to image_tag(@comics[0].image.url(:thumb), class:"thumb-help"), comic_path(@comics[0].id) %>
+      <%= link_to image_tag(@comics[1].image.url(:thumb), class:"thumb-help"), comic_path(@comics[1].id) %>
+      <%= link_to image_tag(@comics[2].image.url(:thumb), class:"thumb-help"), comic_path(@comics[2].id) %>
     </div>
     <div class="six columns cen-jus">
       <ul class="comic-nav-flex">
@@ -16,7 +16,7 @@
         <% else %>
           <li class="comic-nav-cell"><%= link_to "Before", comic_path(@prev_comic.id)%></li>
         <% end %>
-        <li class="comic-nav-cell"><%= link_to "Random", comic_path(@comics[0])%></li>
+        <li class="comic-nav-cell"><%= link_to "Random", comic_path(@comics[6])%></li>
         <% if @next_comic == nil %>
           <li class="comic-nav-cell">Next</li>
         <% else %>
@@ -25,12 +25,12 @@
         <li class="comic-nav-cell"><%= link_to "Last", comic_path(@last_comic.id)%></li>
       </ul>
       <br>
-      <%= image_tag(@comic.image.url(:thumb), class: "main-comic") %>
+      <%= image_tag(@comic.image.url(:large), class: "main-comic") %>
     </div>
     <div class="three columns cen-jus">
-      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
-      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
-      <%= link_to image_tag(@comics[0].uri, class:"thumb-help"), comic_path(@comics[0].id) %>
+      <%= link_to image_tag(@comics[3].image.url(:thumb), class:"thumb-help"), comic_path(@comics[3].id) %>
+      <%= link_to image_tag(@comics[4].image.url(:thumb), class:"thumb-help"), comic_path(@comics[4].id) %>
+      <%= link_to image_tag(@comics[5].image.url(:thumb), class:"thumb-help"), comic_path(@comics[5].id) %>
     </div>
   </div>
   <div class="row">
