@@ -1,6 +1,6 @@
 <div class="container">
 <h1>Edit Comic</h1>
-<%= form_for @comic, html: { multipart: true }, url: user_comic_path(current_user), method: :put do |f| %>
+<%= form_for @comic, html: { multipart: true }, url: user_comic_path(current_user, @comic.id), method: :put do |f| %>
 
   <%= render 'errors' %>
 
