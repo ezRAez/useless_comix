@@ -1,61 +1,52 @@
-
 <%= render 'errors' %>
 
-<div class="main-container">
-  <div class="row">
-    <div class="three columns cen-jus">
-      <%= link_to image_tag(@comics[0].image.url(:thumb), class:"thumb-help"), comic_path(@comics[0].id) %>
-      <%= link_to image_tag(@comics[1].image.url(:thumb), class:"thumb-help"), comic_path(@comics[1].id) %>
-      <%= link_to image_tag(@comics[2].image.url(:thumb), class:"thumb-help"), comic_path(@comics[2].id) %>
-    </div>
-    <div class="six columns cen-jus">
-      <ul class="comic-nav-flex">
-        <li class="comic-nav-cell"><%= link_to "First", comic_path(@first_comic.id)%></li>
-        <% if @prev_comic == nil %>
-          <li class="comic-nav-cell">Before</li>
-        <% else %>
-          <li class="comic-nav-cell"><%= link_to "Before", comic_path(@prev_comic.id)%></li>
-        <% end %>
-        <li class="comic-nav-cell"><%= link_to "Random", comic_path(@comics[6])%></li>
-        <% if @next_comic == nil %>
-          <li class="comic-nav-cell">Next</li>
-        <% else %>
-          <li class="comic-nav-cell"><%= link_to "Next", comic_path(@next_comic.id)%></li>
-        <% end %>
-        <li class="comic-nav-cell"><%= link_to "Last", comic_path(@last_comic.id)%></li>
-      </ul>
-      <br>
-      <%= image_tag(@comic.image.url(:large), class: "main-comic") %>
-    </div>
-    <div class="three columns cen-jus">
-      <%= link_to image_tag(@comics[3].image.url(:thumb), class:"thumb-help"), comic_path(@comics[3].id) %>
-      <%= link_to image_tag(@comics[4].image.url(:thumb), class:"thumb-help"), comic_path(@comics[4].id) %>
-      <%= link_to image_tag(@comics[5].image.url(:thumb), class:"thumb-help"), comic_path(@comics[5].id) %>
-    </div>
+<div id="comics-display">
+  <div class="cen-jus vert-flex responsive-disappear">
+    <%= link_to image_tag(@comics[0].image.url(:thumb), class:"thumb-help responsive-disappear"), comic_path(@comics[0].id) %>
+    <%= link_to image_tag(@comics[1].image.url(:thumb), class:"thumb-help responsive-disappear"), comic_path(@comics[1].id) %>
+    <%= link_to image_tag(@comics[2].image.url(:thumb), class:"thumb-help responsive-disappear"), comic_path(@comics[2].id) %>
   </div>
-  <div class="row">
-    <div class="twelve columns cen-jus">
-      <%= @comic.name %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="twelve columns cen-jus">
-      <%= @comic.created_at %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="twelve columns cen-jus">
-      <% if current_user %>
-        <% if current_user.favorite_comics.include?(@comic) %>
-          <%= link_to "Unfavorite", favorite_comic_path(@comic.id), method: :delete %>
-        <% else %>
-          <%= link_to "Favorite", favorite_comics_path(@comic.id), method: :post %>
-        <% end %>
-        <% if current_user.admin? %>
-          - <%= link_to "Edit", edit_user_comic_path(current_user, @comic) %>
-          <%= link_to "Delete", user_comic_path(current_user, @comic), method: :delete, data: { confirm: "Are you sure you want to delete #{@comic.name}?"} %>
-        <% end %>
+  <div class="spacing"></div>
+  <div class="cen-jus lead-container">
+    <ul class="comic-nav-flex">
+      <% if @prev_comic == nil %>
+        <li class="comic-nav-cell"><%= image_tag('00_full_left.png', class: "disabled") %></li>
+        <li class="comic-nav-cell"><%= image_tag('01_left_arr.png', class: "disabled") %></li>
+      <% else %>
+        <li class="comic-nav-cell"><%= link_to image_tag('00_full_left.png'), comic_path(@first_comic.id)%></li>
+        <li class="comic-nav-cell"><%= link_to image_tag('01_left_arr.png'), comic_path(@prev_comic.id)%></li>
       <% end %>
-    </div>
+      <li class="comic-nav-cell"><%= link_to image_tag('02_random.png'), comic_path(@comics[6])%></li>
+      <% if @next_comic == nil %>
+        <li class="comic-nav-cell"><%= image_tag('03_right_arr.png', class: "disabled")%></li>
+        <li class="comic-nav-cell"><%= link_to image_tag('04_full_right.png', class: "disabled") %></li>
+      <% else %>
+        <li class="comic-nav-cell"><%= link_to image_tag('03_right_arr.png'), comic_path(@next_comic.id)%></li>
+        <li class="comic-nav-cell"><%= link_to image_tag('04_full_right.png'), comic_path(@last_comic.id)%></li>
+      <% end %>
+    </ul>
+      <%= image_tag(@comic.image.url(:large), class: "main-comic") %>
+  </div>
+  <div class="spacing"></div>
+  <div class="cen-jus vert-flex responsive-disappear">
+    <%= link_to image_tag(@comics[3].image.url(:thumb), class:"thumb-help responsive-disappear"), comic_path(@comics[3].id) %>
+    <%= link_to image_tag(@comics[4].image.url(:thumb), class:"thumb-help responsive-disappear"), comic_path(@comics[4].id) %>
+    <%= link_to image_tag(@comics[5].image.url(:thumb), class:"thumb-help responsive-disappear"), comic_path(@comics[5].id) %>
+  </div>
+</div>
+<div class="row">
+  <div class="twelve columns cen-jus">
+    <strong><%= @comic.name %></strong> - <%= @comic.created_at.strftime("%b %-d, %Y") %>&#09;
+    <% if current_user %>
+      <% if current_user.favorite_comics.include?(@comic) %>
+        <%= link_to "Unfavorite", favorite_comic_path(@comic.id), method: :delete %>
+      <% else %>
+        <%= link_to "Favorite", favorite_comics_path(@comic.id), method: :post %>
+      <% end %>
+      <% if current_user.admin? %>
+        - <%= link_to "Edit", edit_user_comic_path(current_user, @comic) %>
+        <%= link_to "Delete", user_comic_path(current_user, @comic), method: :delete, data: { confirm: "Are you sure you want to delete #{@comic.name}?"} %>
+      <% end %>
+    <% end %>
   </div>
 </div>

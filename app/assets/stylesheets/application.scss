@@ -23,8 +23,18 @@
   src: font-url('bad-mofo.ttf') format('truetype');
 }
 
+body {
+  background: url("paper_background.jpg");
+  font-family: monospace !important;
+}
+
 li {
   list-style-type: none;
+}
+
+.cen-jus {
+  margin: 0 auto;
+  text-align: center;
 }
 
 h1 {
@@ -34,7 +44,7 @@ h1 {
 }
 
 .flash {
-  border: 1px solid black;
+  border: 1px solid #00081A;
   padding: 1em;
   background: #eee;
 }
@@ -43,14 +53,24 @@ h1 {
 
 .notice { color: blue; }
 
+// Banner
+
+.lead-banner {
+  width: 100%;
+}
+
 // Nav Bar
 
 .nav-flex {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: center;
   align-items: baseline;
+}
+
+.nav-flex h1 {
+  margin-bottom: -10px;
 }
 
 .empty-cell {
@@ -59,9 +79,26 @@ h1 {
 
 .nav-cell {
   max-width: 30%;
+  margin: 0 2%;
+  color: ghostwhite;
+  font-family: monospace;
+}
+
+.remove-color {
+  color: ghostwhite;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.remove-color:hover {
+  color: ghostwhite;
+  text-shadow: 1.5px 1.5px blue, -1.5px -1.5px yellow, 1.5px -1.5px red;
 }
 
 .nav-top-container {
-  width: 90vw;
-  margin: 15px auto;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #00081A;
 }
+
+
