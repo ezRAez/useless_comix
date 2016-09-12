@@ -14,8 +14,10 @@
  *= require_self
  *= require normalize-rails
  *= require skeleton
+ *= require font-awesome
  */
 
+@import "font-awesome";
 
 @font-face {
   font-family: 'bad-mofo';
@@ -101,4 +103,14 @@ h1 {
   background-color: #00081A;
 }
 
+.fave-heart {
+  color: #00081A;
+  text-decoration: none;
+}
 
+.fave-heart:hover {
+  color: #00089A;
+  text-shadow: 1.7px 1.7px blue,
+               -1.9px -1.9px yellow,
+               1.7px -1.7px red;
+}
