@@ -53,12 +53,21 @@ h1 {
   display: inline-block;
 }
 
-// flash messages
+// flash and error messages
 
 .flash {
   border: 1px solid #00081A;
   padding: 1em;
   background: #eee;
+}
+
+.error-head {
+  margin-bottom: .5rem;
+}
+
+.error {
+  list-style-type: initial;
+  margin-left: 20px;
 }
 
 .alert  { color: red;  }

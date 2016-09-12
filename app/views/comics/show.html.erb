@@ -9,20 +9,20 @@
   <div class="spacing"></div>
   <div class="cen-jus lead-container">
     <ul class="comic-nav-flex">
-      <% if @prev_comic == nil %>
+      <% if @comic.prev == nil %>
         <li class="comic-nav-cell"><%= image_tag('00_full_left.png', class: "disabled") %></li>
         <li class="comic-nav-cell"><%= image_tag('01_left_arr.png', class: "disabled") %></li>
       <% else %>
-        <li class="comic-nav-cell"><%= link_to image_tag('00_full_left.png'), comic_path(@first_comic.id)%></li>
-        <li class="comic-nav-cell"><%= link_to image_tag('01_left_arr.png'), comic_path(@prev_comic.id)%></li>
+        <li class="comic-nav-cell"><%= link_to image_tag('00_full_left.png'), comic_path(@first_last[0])%></li>
+        <li class="comic-nav-cell"><%= link_to image_tag('01_left_arr.png'), comic_path(@comic.prev.id)%></li>
       <% end %>
       <li class="comic-nav-cell"><%= link_to image_tag('02_random.png'), comic_path(@comics[6])%></li>
-      <% if @next_comic == nil %>
+      <% if @comic.next == nil %>
         <li class="comic-nav-cell"><%= image_tag('03_right_arr.png', class: "disabled")%></li>
         <li class="comic-nav-cell"><%= link_to image_tag('04_full_right.png', class: "disabled") %></li>
       <% else %>
-        <li class="comic-nav-cell"><%= link_to image_tag('03_right_arr.png'), comic_path(@next_comic.id)%></li>
-        <li class="comic-nav-cell"><%= link_to image_tag('04_full_right.png'), comic_path(@last_comic.id)%></li>
+        <li class="comic-nav-cell"><%= link_to image_tag('03_right_arr.png'), comic_path(@comic.next.id)%></li>
+        <li class="comic-nav-cell"><%= link_to image_tag('04_full_right.png'), comic_path(@first_last[1])%></li>
       <% end %>
     </ul>
       <%= image_tag(@comic.image.url(:large), class: "main-comic") %>

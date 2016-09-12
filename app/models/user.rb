@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   after_initialize :default_values
   has_secure_password
 
-  validates :email, uniqueness: true, presence: true
+  validates :email, uniqueness: true,
+                    presence: true,
+                    email_format: { message: "Please enter a vaild email address" }
   validates :name,  presence:   true
 
   has_many :comics

@@ -40,6 +40,8 @@ gem 'normalize-rails'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 
+gem 'validates_email_format_of'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
