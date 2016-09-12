@@ -1,17 +1,45 @@
-<h3>Archive</h3>
-
-<ul>
-  <% @comics.each do |comic| %>
-    <li>
-      <%= image_tag(comic.image.url(:thumb), height: '32', width: '32') %>
-      <strong>
-        <%= link_to "#{comic.name}", comic_path(comic) %>
-      </strong> - <%= comic.created_at %>
-      <% if current_user && current_user.admin? %>
-        - <%= link_to "Edit", edit_user_comic_path(current_user, comic) %>
-        <%= link_to "Delete", user_comic_path(current_user, comic), method: :delete, data: { confirm: "Are you sure you want to delete #{comic.name}?"} %>
-      <% end %>
-    </li>
-
+<div class="container">
+  <h1>Archives</h1>
+  <div class="all-comics">
+  <% @comics.each do |comic, index| %>
+    <% if index.to_i % 2 == 0 %>
+      <ul class="archive-row">
+        <li>
+          <%= image_tag(comic.image.url(:thumb), height: '32', width: '32', class: "set-center") %>
+          <strong>
+            <%= link_to "#{comic.name}", comic_path(comic), class: "link-recolor" %>
+          </strong> - <%= comic.created_at.strftime("%b %-d, %Y") %>
+          <% if current_user %>
+            <% if current_user.favorite_comics.include?(comic) %>
+              <%= link_to favorite_comic_path(comic.id), method: :delete, class: "fave-heart" do %>
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <%= link_to favorite_comics_path(comic.id), method: :post, class: "fave-heart" do %>
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+            <% if current_user.admin? %>
+              - <%= link_to "Edit", edit_user_comic_path(current_user, comic) %>
+              <%= link_to "Delete", user_comic_path(current_user, comic), method: :delete, data: { confirm: "Are you sure you want to delete #{comic.name}?"} %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    <% else %>
+      <ul class="archive-row">
+        <li>
+          <%= image_tag(comic.image.url(:thumb), height: '32', width: '32', class: "set-center") %>
+          <strong>
+            <%= link_to "#{comic.name}", comic_path(comic), class: "link-recolor" %>
+          </strong> - <%= comic.created_at.strftime("%b %-d, %Y") %>
+          <% if current_user && current_user.admin? %>
+            - <%= link_to "Edit", edit_user_comic_path(current_user, comic) %>
+            <%= link_to "Delete", user_comic_path(current_user, comic), method: :delete, data: { confirm: "Are you sure you want to delete #{comic.name}?"} %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
   <% end %>
-</ul>
+  </div>
+</div>

@@ -3,30 +3,29 @@
   <%= render 'errors' %>
 
   <div class="row">
-    <div class="field col-md-3">
-      <%= f.label "Name: " %><br>
-      <%= f.text_field :name %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: "Name…" %>
     </div>
-    <div class="field col-md-3">
-      <%= f.label "e-mail: " %><br>
-      <%= f.text_field :email %>
+    <div class="field">
+      <%= f.text_field :email, placeholder: "Email…" %>
     </div>
   </div>
-  <div>
-    <div class="field col-md-3">
-      <%= f.label "Password: " %><br>
-      <%= f.password_field :password %>
+  <div class="row">
+    <div class="field">
+      <%= f.password_field :password, placeholder: "Password…" %>
     </div>
-    <div class="field col-md-3">
-      <%= f.label "Confirm Password: " %><br>
-      <%= f.password_field :password_confirmation %>
+    <div class="field">
+      <%= f.password_field :password_confirmation, placeholder: "Confirm Password…" %>
     </div>
   </div>
-  <%= button_tag(type: 'submit', class: "btn btn-success") do %>
-    <% if !current_user %>
-      Create Account
-    <% else %>
-      Save Changes
+  <div class="row">
+    <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+      <% if !current_user %>
+        Create Account
+      <% else %>
+        Save Changes
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
 <% end %>

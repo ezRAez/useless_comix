@@ -1,19 +1,21 @@
-<h4>Log In</h4>
+<div class="container">
+  <h1>Log In</h1>
 
-<div>
-  <%= form_tag sessions_path do %>
-    <div class="field">
-      <%= label_tag :email %>
-      <%= text_field_tag :email, params[:email] %>
-    </div>
-    <div class="field">
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </div>
-      <%= submit_tag "Log in" %>
-  <% end %>
-  <br>
-  <p class="messages"><em><strong>
-    <%= link_to "Click here to sign up as a new user!", new_user_path %>
-  </strong></em></p>
+  <div>
+    <%= form_tag sessions_path do %>
+      <div class="field">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, params[:email] %>
+      </div>
+      <div class="field">
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </div>
+        <%= submit_tag "Log in" %>
+    <% end %>
+    <br>
+    <h5 class="messages"><u><em><strong>
+      <%= link_to "New User?", new_user_path, class: "link-recolor" %>
+    </strong></em></u></h5>
+  </div>
 </div>

@@ -1,26 +1,26 @@
 <div class="container">
-<h1>New Comic</h1>
-<%= form_for @comic, html: { multipart: true }, url: user_comics_path(current_user) do |f| %>
+  <h1>New Comic</h1>
+  <%= form_for @comic, html: { multipart: true }, url: user_comics_path(current_user) do |f| %>
 
-  <%= render 'errors' %>
+    <%= render 'errors' %>
 
-  <div>
-      <div>
+    <div>
         <div>
-          <%= f.label "name: " %><br>
-          <%= f.text_field :name %>
-        </div>
-        <div>
-          <%= f.label "image: " %><br>
-          <%= f.file_field :image %>
+          <div>
+            <%= f.label "name: " %><br>
+            <%= f.text_field :name %>
+          </div>
+          <div>
+            <%= f.label "image: " %><br>
+            <%= f.file_field :image %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="actions btn">
-      <%= f.submit %>
+      <div class="actions btn">
+        <%= f.submit %>
+      </div>
+      <%= link_to 'Back', "/users/#{ current_user.id }"%>
     </div>
-    <%= link_to 'Back', "/users/#{ current_user.id }"%>
-  </div>
-<% end %>
+  <% end %>
 </div>

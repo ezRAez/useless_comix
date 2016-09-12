@@ -30,6 +30,10 @@ body {
   font-family: monospace !important;
 }
 
+.all-content {
+  margin-bottom: 50px;
+}
+
 li {
   list-style-type: none;
 }
@@ -44,6 +48,12 @@ h1 {
   font-size: 7rem;
   letter-spacing: .24rem;
 }
+
+.make-inline {
+  display: inline-block;
+}
+
+// flash messages
 
 .flash {
   border: 1px solid #00081A;

@@ -66,3 +66,28 @@ div.spacing {
     display: initial;
   }
 }
+
+// Archives
+.set-center {
+  vertical-align: middle;
+}
+
+.all-comics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.archive-row {
+  width: 40%;
+}
+
+.link-recolor {
+  color: #00080A;
+  text-decoration: none;
+}
+
+.link-recolor:hover {
+  color: #00080A;
+  text-shadow: 1.5px 1.5px blue, -1.5px -1.5px yellow, 1.5px -1.5px red;
+}

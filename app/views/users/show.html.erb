@@ -1,21 +1,34 @@
-<h1><%= @user.name %></h1>
+<div class="container">
+  <h1>Favorites: </h1>
 
-<%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
+  <ul class="all-fave-comics">
+    <% @user.favorite_comics.each do |comic| %>
+        <ul class="fave-row">
+          <li class="fave-comic cen-jus">
+            <%= image_tag(comic.image.url(:thumb), height: '100', width: '100') %>
+            <br>
+            <strong>
+              <h6 class="cen-jus"><%= link_to "#{comic.name}", comic_path(comic), class: "link-recolor" %></h6>
+            </strong>
+            <p class="cen-jus"><%= comic.created_at.strftime("%b %-d, %Y") %></p>
+            <% if current_user && current_user.admin? %>
+              <%= link_to "Edit", edit_user_comic_path(current_user, comic) %>
+              <%= link_to "Delete", user_comic_path(current_user, comic), method: :delete, data: { confirm: "Are you sure you want to delete #{comic.name}?"} %>
+            <% end %>
+          </li>
+        </ul>
+    <% end %>
+  </ul>
+  <div class="make-inline">
+    <%= button_to "Edit Profile", edit_user_path(@user), method: :get%>
+  </div>
+  <div class="make-inline">
+    <% if current_user.admin? %>
 
-<% if current_user %>
-  <% if current_user.admin? %>
-    <%= button_to "Add Comic", new_user_comic_path(@user), method: :get %>
-  <% end %>
-<% end %>
+      <%= button_to "Add Comic", new_user_comic_path(@user), method: :get, class: "make-inline" %>
+    <% end %>
+  </div>
 
-<h3>Favorite Comics</h3>
-<ul>
-  <% @user.favorite_comics.each do |comic| %>
-    <li>
-      <%= image_tag(comic.image.url(:thumb)) %>
-      <strong>
-        <%= link_to "#{comic.name}", comic_path(comic) %>
-      </strong> - <%= comic.created_at %>
-    </li>
-  <% end %>
-</ul>
+</div>
+
+
